@@ -4,10 +4,16 @@ body {
 
 .home-viewport {
   height: 100vh;
-  background-color: darkblue;
   align-items: center;
   display: flex;
   justify-content: center;
+  background-size: cover;
+  background: black;
+  overflow: hidden;
+}
+
+img {
+  object-fit: cover;
 }
 
 .search-form {
