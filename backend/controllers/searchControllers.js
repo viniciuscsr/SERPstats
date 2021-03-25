@@ -17,10 +17,8 @@ const googleSearch = async (req, res) => {
   //   console.error(error);
   // }
 
-  // let dataString = JSON.stringify(search);
-  // dataString = dataString.split('"');
-
-  let words = search.split(' ');
+  let words = JSON.stringify(search);
+  words = words.split('"');
 
   let index = {};
 
@@ -32,9 +30,9 @@ const googleSearch = async (req, res) => {
     }
   }
 
-  console.log(index);
+  console.log(req.query.keyword);
 
-  res.json({ data: words });
+  res.json({ data: index });
 };
 
 module.exports = { googleSearch };

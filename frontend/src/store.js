@@ -1,10 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { searchReducer } from './reducers/searchReducer';
+import { keywordSearchReducer } from './reducers/keywordReducer';
 
 const reducer = combineReducers({
-  search: searchReducer,
+  keywordSearch: keywordSearchReducer,
 });
 
 const initialState = {};

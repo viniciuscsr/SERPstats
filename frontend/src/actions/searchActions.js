@@ -1,19 +1,19 @@
 import axios from 'axios';
 import {
-  SEARCH_CREATE_REQUEST,
-  SEARCH_CREATE_SUCCESS,
-  SEARCH_CREATE_FAIL,
-} from '../constants/searchConstants';
+  KEYWORD_SEARCH_REQUEST,
+  KEYWORD_SEARCH_SUCCESS,
+  KEYWORD_SEARCH_FAIL,
+} from '../constants/keywordConstants';
 
-export const search = () => async (dispatch, keyword) => {
+export const search = (keyword) => async (dispatch) => {
   try {
-    dispatch({ type: SEARCH_CREATE_REQUEST });
+    dispatch({ type: KEYWORD_SEARCH_REQUEST });
 
     const { data } = await axios.get(`/api/search?keyword=${keyword}`);
-    dispatch({ type: SEARCH_CREATE_SUCCESS, payload: data });
+    dispatch({ type: KEYWORD_SEARCH_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
-      type: SEARCH_CREATE_FAIL,
+      type: KEYWORD_SEARCH_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.date.message

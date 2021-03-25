@@ -3,6 +3,6 @@ const router = express.Router();
 
 const { googleSearch } = require('../controllers/searchControllers');
 
-router.get('/', googleSearch);
+router.get('', googleSearch);
 
 module.exports = router;
