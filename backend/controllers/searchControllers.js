@@ -20,17 +20,36 @@ const googleSearch = async (req, res) => {
   let words = JSON.stringify(search);
   words = words.split('"');
 
-  let index = {};
+  // let index = {};
+
+  // for (let i = 0; i < words.length; i++) {
+  //   if (index[words[i]]) {
+  //     index[words[i]]++;
+  //   } else {
+  //     index[words[i]] = 1;
+  //   }
+  // }
+
+  let index = [];
 
   for (let i = 0; i < words.length; i++) {
-    if (index[words[i]]) {
-      index[words[i]]++;
-    } else {
-      index[words[i]] = 1;
+    //searching values in nested arrays
+    let wordExists = false;
+    for (let j = 0; j < index.length; j++) {
+      let arrayIndex = index[j].indexOf(words[i]);
+      if (arrayIndex >= 0) {
+        index[j][1]++;
+        wordExists = true;
+        break;
+      }
+    }
+    if (!wordExists) {
+      index.push([words[i], 1]);
     }
   }
 
-  res.json({ data: index });
+  console.log(index);
+  // res.json({ data: index });
 };
 
 module.exports = { googleSearch };
