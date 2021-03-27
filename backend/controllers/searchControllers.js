@@ -20,16 +20,6 @@ const googleSearch = async (req, res) => {
   let words = JSON.stringify(search);
   words = words.split('"');
 
-  // let index = {};
-
-  // for (let i = 0; i < words.length; i++) {
-  //   if (index[words[i]]) {
-  //     index[words[i]]++;
-  //   } else {
-  //     index[words[i]] = 1;
-  //   }
-  // }
-
   let index = [];
 
   for (let i = 0; i < words.length; i++) {
@@ -48,8 +38,11 @@ const googleSearch = async (req, res) => {
     }
   }
 
-  console.log(index);
-  // res.json({ data: index });
+  index.sort((a, b) => {
+    return b[1] - a[1];
+  });
+
+  res.json(index);
 };
 
 module.exports = { googleSearch };
