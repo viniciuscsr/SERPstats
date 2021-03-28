@@ -1,32 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { search } from '../actions/searchActions';
 
-const HomeScreen = () => {
+const HomeScreen = ({ history }) => {
   const [keyword, setKeyword] = useState('');
 
   const dispatch = useDispatch();
 
-  // const keywordSearch = useSelector((state) => state.keywordSearch);
-  // const { loading, results, error } = keywordSearch;
-
-  // useEffect(() => {
-  //   if (results) {
-  //     //history.push()
-  //     console.log('redirect');
-  //   }
-  // }, [results]);
-
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(search(keyword));
-    //history.push
-    console.log('dispatched');
+    history.push(`/results?keyword=${keyword}`);
   };
 
   return (
     <div
-      className='home-viewport'
+      className='site-hero'
       style={{
         backgroundImage: `url(${
           process.env.PUBLIC_URL + '/images/homesearch.jpg'

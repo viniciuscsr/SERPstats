@@ -1,15 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import HomeScreen from './screens/HomeScreen';
+import ResultsScreen from './screens/ResultsScreen';
 
 const App = () => {
   return (
     <Router>
       <main>
-        <Container>
+        <Switch>
           <Route path='/' component={HomeScreen} exact />
-        </Container>
+          <Container>
+            <Route path='/results' component={ResultsScreen} exact />
+          </Container>
+        </Switch>
       </main>
     </Router>
   );
