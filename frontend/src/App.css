@@ -3,6 +3,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+main {
+  background-color: #f0f0f0;
+}
+
 .site-hero {
   height: 100vh;
   align-items: center;
@@ -83,14 +87,52 @@ input:focus {
 /* results page */
 
 .counter-col {
-  border: 1px solid #f0f0f0;
+  background-color: #ffffff;
 }
 
 .counter-container {
-  background-color: #ffffff;
   padding: 0px 0px !important;
 }
 
-main {
-  background-color: #f0f0f0;
+.jumbotron .container {
+  text-align: center;
+  color: #6dc1e5;
+}
+
+.jumbotron .container h1 {
+  font-weight: 900;
+}
+
+.jumbotron {
+  background-color: black;
+}
+
+.page-item a {
+  background-color: #f0f0f0 !important;
+  color: #6dc1e5 !important;
+  border: 3px solid #fff;
+}
+
+.button-row {
+  background-color: black;
+  padding-top: 10px;
+}
+
+.goback-button {
+  background-color: #6dc1e5 !important;
+}
+
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
